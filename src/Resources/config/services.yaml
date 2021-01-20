@@ -1,7 +1,7 @@
 parameters:
-  tracing.header.name: 'trace_id'
-  tracing.log.field.name: 'trace_id'
-  tracing.application.name: 'app'
+  tracing.header.name: ~
+  tracing.log.field.name: ~
+  tracing.application.name: ~
 
 services:
   _defaults:
