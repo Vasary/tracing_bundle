@@ -11,6 +11,12 @@ use Symfony\Component\DependencyInjection\Loader;
 
 class TracingExtension extends Extension
 {
+    private const DEFAULT = [
+        'header_name' => 'x-trace-id',
+        'log_field_name' => 'x-trace-id',
+        'application_name' => 'my_application',
+    ];
+
     /**
      * {@inheritdoc}
      */
@@ -22,8 +28,10 @@ class TracingExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
 
-        $container->setParameter('tracing.header.name', $configs[0]['header_name']);
-        $container->setParameter('tracing.log.field.name', $configs[0]['log_field_name']);
-        $container->setParameter('tracing.application.name', $configs[0]['application_name']);
+        $config = self::DEFAULT + $configs[0];
+
+        $container->setParameter('tracing.header.name', $config['header_name']);
+        $container->setParameter('tracing.log.field.name', $config['log_field_name']);
+        $container->setParameter('tracing.application.name', $config['application_name']);
     }
 }

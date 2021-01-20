@@ -16,15 +16,9 @@ class Configuration implements ConfigurationInterface
         $treeBuilder
             ->getRootNode()
                 ->children()
-                    ->scalarNode('header_name')
-                        ->defaultValue('x-trace-id')
-                    ->end()
-                    ->scalarNode('log_field_name')
-                        ->defaultValue('x-trace-id')
-                    ->end()
-                    ->scalarNode('application_name')
-                        ->defaultValue('my_application')
-                    ->end()
+                    ->scalarNode('header_name')->end()
+                    ->scalarNode('log_field_name')->end()
+                    ->scalarNode('application_name')->end()
             ->end()
         ;
 
