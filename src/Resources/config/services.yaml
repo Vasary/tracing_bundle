@@ -1,0 +1,40 @@
+parameters:
+  tracing.header.name: 'trace_id'
+  tracing.log.field.name: 'trace_id'
+  tracing.application.name: 'app'
+
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: false
+
+  generator.guid:
+    class: Vasary\XTraceId\Infrastructure\GUIDGenerator\GUIDGenerator
+
+  generator.trace_id:
+    arguments: ['@generator.guid']
+    class: Vasary\XTraceId\Infrastructure\Generator\TraceIdGenerator
+
+  Vasary\XTraceId\Infrastructure\EventSubscriber\RequestLogger:
+    arguments: ['@generator.trace_id', '@monolog.logger.request', '%tracing.header.name%']
+    tags:
+      - { name: kernel.event_subscriber }
+
+  Vasary\XTraceId\Infrastructure\EventSubscriber\ResponseLogger:
+    arguments: ['@generator.trace_id', '@monolog.logger.request', '%tracing.header.name%']
+    tags:
+      - { name: kernel.event_subscriber }
+
+  Vasary\XTraceId\Infrastructure\LoggerProcessor\ApplicationNameProcessor:
+    arguments: ['%tracing.application.name%']
+    tags:
+      - { name: monolog.processor }
+
+  Vasary\XTraceId\Infrastructure\LoggerProcessor\ExtraLevelNameProcessor:
+    tags:
+      - { name: monolog.processor }
+
+  Vasary\XTraceId\Infrastructure\LoggerProcessor\TraceIdProcessor:
+    arguments: ['@generator.trace_id', '%tracing.log.field.name%']
+    tags:
+      - { name: monolog.processor }

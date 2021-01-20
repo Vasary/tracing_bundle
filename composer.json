@@ -1,0 +1,47 @@
+{
+    "name": "vasary/tracer-bundle",
+    "description": "Tracer id bundle",
+    "type": "symfony-bundle",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4 || >= 8.0",
+        "symfony/framework-bundle": "5.2.*",
+        "symfony/yaml": "5.2.*",
+        "vasary/x-trace-id": "^0.1.2"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Vasary\\TracingBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vasary\\TracingBundle\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.2.*"
+        }
+    }
+}
