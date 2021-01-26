@@ -9,12 +9,12 @@ A bundle that provides requests tracing ability.
 ### Composer
 
 ```bash
-composer require vasary/tracing_bundle
+composer require vasary/tracer-bundle
 ```
 
-### AppKernel
+### Kernel
 
-Include the bundle in your AppKernel
+Include the bundle in your Kernel
 
 ```php
 public function registerBundles()
