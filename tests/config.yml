@@ -1,0 +1,17 @@
+framework:
+    test: ~
+    router:
+        resource: "%kernel.project_dir%/tests/routing/routing.yml"
+        strict_requirements: ~
+        utf8: true
+    secret: 'fake_secret'
+
+monolog:
+    handlers:
+        main:
+            type: console
+
+tracing:
+    header_name: x-trace-id
+    log_field_name: x-trace-id
+    application_name: change_me

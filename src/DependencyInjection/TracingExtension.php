@@ -6,8 +6,8 @@ namespace Vasary\TracingBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class TracingExtension extends Extension
 {
@@ -25,10 +25,10 @@ class TracingExtension extends Extension
         $configuration = new Configuration();
         $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
 
-        $config = self::DEFAULT + $configs[0];
+        $config = $configs[0] + self::DEFAULT;
 
         $container->setParameter('tracing.header.name', $config['header_name']);
         $container->setParameter('tracing.log.field.name', $config['log_field_name']);
