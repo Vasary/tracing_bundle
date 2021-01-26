@@ -5,16 +5,12 @@ os: linux
 jobs:
   include:
     - php: 7.3
-      env: SYMFONY_VERSION='^3.4'
-    - php: 7.3
-      env: SYMFONY_VERSION='^4.4'
-    - php: 7.4
-      env: SYMFONY_VERSION='^4.4'
-    - php: 7.3
       env: SYMFONY_VERSION='^5.0'
     - php: 7.4
       env: SYMFONY_VERSION='^5.0'
-  fast_finish: true
+    - php: 8.0
+      env: SYMFONY_VERSION='^5.0'
+  fast_finish: false
 
 before_script:
   - composer global require --no-progress --no-scripts --no-plugins symfony/flex
