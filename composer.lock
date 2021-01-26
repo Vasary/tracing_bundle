@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b667a5960e38d48bdae475770d66831",
+    "content-hash": "c21790572504fd752a40777b8dbf271d",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -2130,30 +2130,29 @@
         },
         {
             "name": "vasary/x-trace-id",
-            "version": "0.1.2",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Vasary/tracing.git",
-                "reference": "0776f54ccb65e262dde66302237823613c663c55"
+                "reference": "d96476e75fa4baf551dd8fd9101ab7052e1da31a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Vasary/tracing/zipball/0776f54ccb65e262dde66302237823613c663c55",
-                "reference": "0776f54ccb65e262dde66302237823613c663c55",
+                "url": "https://api.github.com/repos/Vasary/tracing/zipball/d96476e75fa4baf551dd8fd9101ab7052e1da31a",
+                "reference": "d96476e75fa4baf551dd8fd9101ab7052e1da31a",
                 "shasum": ""
             },
             "require": {
-                "monolog/monolog": "^2.0.0",
-                "php": "^7.4 || ^8.0",
-                "psr/log": "*",
-                "symfony/event-dispatcher": "5.*",
-                "symfony/http-foundation": "5.*",
-                "symfony/http-kernel": "5.*"
+                "monolog/monolog": "^2",
+                "php": ">=7.3",
+                "psr/log": "^1.0.1",
+                "symfony/event-dispatcher": "^5|^4|^3.4",
+                "symfony/http-foundation": "^5|^4|^3.4",
+                "symfony/http-kernel": "^5|^4|^3.4"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.64",
-                "phpunit/php-code-coverage": "^9.2",
-                "phpunit/phpunit": "^9"
+                "phpunit/php-code-coverage": "^9|^8|^7|^6",
+                "phpunit/phpunit": "^9|^8|^7"
             },
             "type": "library",
             "autoload": {
@@ -2179,9 +2178,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Vasary/tracing/issues",
-                "source": "https://github.com/Vasary/tracing/tree/0.1.2"
+                "source": "https://github.com/Vasary/tracing/tree/1.0.5"
             },
-            "time": "2021-01-11T12:37:26+00:00"
+            "time": "2021-01-26T12:34:51+00:00"
         }
     ],
     "packages-dev": [
