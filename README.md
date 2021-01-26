@@ -1,6 +1,8 @@
 # Tracing bundle
 
-A bundle that provides requests tracing ability  
+A bundle that provides requests tracing ability.
+
+[![Build Status](https://travis-ci.com/Vasary/tracing_bundle.svg?branch=master)](https://travis-ci.com/Vasary/tracing_bundle)
 
 ## Install
 
