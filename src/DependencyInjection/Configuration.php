@@ -19,6 +19,11 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('header_name')->end()
                     ->scalarNode('log_field_name')->end()
                     ->scalarNode('application_name')->end()
+                    ->arrayNode('extra')
+                        ->children()
+                            ->scalarNode('environment')->end()
+                        ->end()
+                    ->end() // extra
             ->end()
         ;
 
