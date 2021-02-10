@@ -36,4 +36,13 @@ tracing:
   application_name: change_me
 ```
 
+###
+Extra parameters can be placed in  config/packages/(dev|test|prod)/tracing.yaml"
+
+```yaml
+tracing:
+    extra:
+        key: value
+```
+
 You can also override these settings.
