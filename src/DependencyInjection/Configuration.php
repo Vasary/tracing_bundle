@@ -20,10 +20,8 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('log_field_name')->end()
                     ->scalarNode('application_name')->end()
                     ->arrayNode('extra')
-                        ->children()
-                            ->scalarNode('environment')->end()
-                        ->end()
-                    ->end() // extra
+                        ->scalarPrototype()->end()
+                    ->end() // extra fields
             ->end()
         ;
 
