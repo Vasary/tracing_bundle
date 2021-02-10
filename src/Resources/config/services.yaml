@@ -2,6 +2,9 @@ parameters:
   tracing.header.name: ~
   tracing.log.field.name: ~
   tracing.application.name: ~
+  tracing:
+      extra:
+          environment: ~
 
 services:
   _defaults:
@@ -36,5 +39,10 @@ services:
 
   Vasary\XTraceId\Infrastructure\LoggerProcessor\TraceIdProcessor:
     arguments: ['@generator.trace_id', '%tracing.log.field.name%']
+    tags:
+      - { name: monolog.processor }
+
+  Vasary\XTraceId\Infrastructure\LoggerProcessor\EnvironmentProcessor:
+    arguments: ['%tracing.extra.environment%']
     tags:
       - { name: monolog.processor }
