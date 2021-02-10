@@ -3,8 +3,7 @@ parameters:
   tracing.log.field.name: ~
   tracing.application.name: ~
   tracing:
-      extra:
-          environment: ~
+      extra: ~
 
 services:
   _defaults:
@@ -42,7 +41,7 @@ services:
     tags:
       - { name: monolog.processor }
 
-  Vasary\XTraceId\Infrastructure\LoggerProcessor\EnvironmentProcessor:
-    arguments: ['%tracing.extra.environment%']
+  Vasary\XTraceId\Infrastructure\LoggerProcessor\ExtraParametersProcessor:
+    arguments: ['%tracing.extra%']
     tags:
       - { name: monolog.processor }

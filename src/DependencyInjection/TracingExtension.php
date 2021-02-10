@@ -15,9 +15,7 @@ class TracingExtension extends Extension
         'header_name' => 'x-trace-id',
         'log_field_name' => 'x-trace-id',
         'application_name' => 'my_application',
-        'extra' => [
-            'environment' => 'dev',
-        ],
+        'extra' => [],
     ];
 
     /**
@@ -36,6 +34,6 @@ class TracingExtension extends Extension
         $container->setParameter('tracing.header.name', $config['header_name']);
         $container->setParameter('tracing.log.field.name', $config['log_field_name']);
         $container->setParameter('tracing.application.name', $config['application_name']);
-        $container->setParameter('tracing.extra.environment', $config['extra']['environment']);
+        $container->setParameter('tracing.extra', $config['extra']);
     }
 }
