@@ -1,3 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    handler.test:
+        class: Monolog\Handler\TestHandler
+        public: true
+
+    Vasary\TracingBundle\Tests\Controller\MockController:
+        arguments: ['@monolog.logger']
+        public: true
+
 framework:
     test: ~
     router:
@@ -9,9 +22,13 @@ framework:
 monolog:
     handlers:
         main:
-            type: console
+            type: service
+            id: handler.test
+            level: debug
 
 tracing:
     header_name: x-trace-id
     log_field_name: x-trace-id
     application_name: change_me
+    extra:
+        key: value
